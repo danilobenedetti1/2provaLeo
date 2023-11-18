@@ -10,8 +10,9 @@
   --fonte-secundaria: 'Krona One', sans-serif;
   --fonte-footer: Arial, Helvetica, sans-serif;
 }
+
 body {
-  font-family: var(--fonte-principal)
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
@@ -31,6 +32,7 @@ body {
   background-color: var(--cor-header);
   padding: 20px;
 }
+
 .tt3{
     margin-top: 30px;
     background-color: var(--cor-header);
