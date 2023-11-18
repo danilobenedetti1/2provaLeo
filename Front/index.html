@@ -3,34 +3,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="index.css">
-    <title>Aula 02 - Back</title>
+    <title>Prova Leo</title>
 </head>
 <body>
+    <div class="tt1">
     <h1>Cadastro Nome</h1>
     <form action="/cadastroNome" method="post">
         <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome">
         <button type="submit">Enviar</button>
     </form>
+    </div>
     <div>
-        <h2>Nomes Cadastrados</h2>
-        <div id="nomes"></div>
-        <button onclick="mostrarNomes()">Mostrar Nomes</button>
-    
+        <div class="tt2">
+          <h2>Nomes Cadastrados</h2>
+          <div class="form1" id="nomes"></div>
+          <button onclick="mostrarNomes()">Mostrar Nomes</button>
+        </div>  
       <div>
+        <div class="tt3">
           <h2>Atualizar Nome</h2>
           Nome a Atualizar: <input type="text" id="nomeParaAtualizar">
           Novo Nome: <input type="text" id="novoNome">
           <button type="button" id="atualizarButton" onclick="atualizarNome()">Atualizar</button>
+        </div>
       </div>
       
       
     <div>
+        <div class="tt4">
           <h2>Excluir Nome</h2>
           <form>
               Nome a Excluir: <input type="text" id="nomeParaExcluir">
               <button type="button" id="excluirButton" onclick="excluirNome()">Excluir</button>
           </form>
+        </div>
     </div>
       
     

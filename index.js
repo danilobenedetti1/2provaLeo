@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json()); // Adicione essa linha para processar JSON
+app.use(bodyParser.json());
 app.use(express.json());
 
 app.listen(3000, () => {
