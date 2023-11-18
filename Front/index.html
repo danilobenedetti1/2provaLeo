@@ -1,0 +1,89 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>Aula 02 - Back</title>
+</head>
+<body>
+    <h1>Cadastro Nome</h1>
+    <form action="/cadastroNome" method="post">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome">
+        <button type="submit">Enviar</button>
+    </form>
+    <div>
+        <h2>Nomes Cadastrados</h2>
+        <div id="nomes"></div>
+        <button onclick="mostrarNomes()">Mostrar Nomes</button>
+    
+      <div>
+          <h2>Atualizar Nome</h2>
+          Nome a Atualizar: <input type="text" id="nomeParaAtualizar">
+          Novo Nome: <input type="text" id="novoNome">
+          <button type="button" id="atualizarButton" onclick="atualizarNome()">Atualizar</button>
+      </div>
+      
+      
+    <div>
+          <h2>Excluir Nome</h2>
+          <form>
+              Nome a Excluir: <input type="text" id="nomeParaExcluir">
+              <button type="button" id="excluirButton" onclick="excluirNome()">Excluir</button>
+          </form>
+    </div>
+      
+    
+
+</body>
+</html>
+
+<script>
+  function mostrarNomes() {
+    fetch('/mostrarNomes')
+      .then(response => response.json())
+      .then(data => {
+        const nomesDiv = document.getElementById('nomes');
+        nomesDiv.innerHTML = '';
+        data.forEach((nome, indice) => {
+          nomesDiv.innerHTML += `${nome}<br>`;
+        });
+      });
+  }
+</script>
+
+
+<script>
+    function atualizarNome() {
+      const nomeParaAtualizar = document.getElementById('nomeParaAtualizar').value;
+      const novoNome = document.getElementById('novoNome').value;
+      fetch('/atualizarNome', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ nomeParaAtualizar, novoNome })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data); // Exibir a resposta do servidor, se necessário
+      });
+    }
+</script>
+
+<script>
+    function excluirNome() {
+      const nomeParaExcluir = document.getElementById('nomeParaExcluir').value;
+      fetch('/excluirNome', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ nomeParaExcluir })
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data); // Exibir a resposta do servidor, se necessário
+      });
+    }
+</script>
